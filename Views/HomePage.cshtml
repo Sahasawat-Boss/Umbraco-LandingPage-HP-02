@@ -22,7 +22,7 @@
     var siteTitleImage = Model.Value<MediaWithCrops>("siteTitleImage");
     if (siteTitleImage is MediaWithCrops mediaEntry)
     {
-        <img src="@mediaEntry.MediaUrl()"/>
+        <img src="@mediaEntry.GetCropUrl("siteTitleImage")"/>
     }
 }
 
