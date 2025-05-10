@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<h1>
+	@Model.Name
+</h1>
+
+<h2>
+	@Model.Value("siteTitle")
+</h2>
+
+<p>
+	@Model.Value("siteSubTitle")
+</p>
+
+<!-- Image for Title -->
+@{
+    var siteTitleImage = Model.Value<MediaWithCrops>("siteTitleImage");
+    if (siteTitleImage is MediaWithCrops mediaEntry)
+    {
+        <img src="@mediaEntry.MediaUrl()"/>
+    }
+}
+
+
+
