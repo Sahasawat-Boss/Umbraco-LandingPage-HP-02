@@ -9,24 +9,10 @@
 
 <!-- One -->
 <section
-    class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-    <div class="content">
-        <h1>@Model.Value("siteTitle")</h1>
-        <p class="major">@Model.Value("siteSubTitle")</p>
 
-    @if (pageLink != null)
-    {
-        <ul class="actions stacked">
-            <li>
-                <a href="@pageLink.Url()" class="button big wide smooth-scroll-middle">
-                    Go to @pageLink.Name
-                </a>
-            </li>
-        </ul>
-    }
+    <!-- Hero Banner - Patial View -->
+    @await Html.PartialAsync("Partials/Sections/HeroBanner.cshtml", Model)
 
-
-    </div>
 
     @if (siteTitleImage is MediaWithCrops mediaEntry)
     {

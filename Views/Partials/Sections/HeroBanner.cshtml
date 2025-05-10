@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var siteTitleImage = Model.Value<MediaWithCrops>("siteTitleImage");
+    var pageLink = Model.Value<IPublishedContent>("pageLink");
+}
+
+<section
+    class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+    <div class="content">
+        <h1>@Model.Value("siteTitle")</h1>
+        <p class="major">@Model.Value("siteSubTitle")</p>
+        <p> This is Hero section from Patial View</p>
+
+        @if (pageLink != null)
+        {
+            <ul class="actions stacked">
+                <li><a href="@pageLink.Url()" class="button big wide smooth-scroll-middle">Go to @pageLink.Name</a></li>
+            </ul>
+        }
+    </div>
+
+    @if (siteTitleImage is MediaWithCrops mediaEntry)
+    {
+        <div class="image">
+            <img src="@mediaEntry.Url()" alt="Site title image" />
+        </div>
+    }
+</section>
