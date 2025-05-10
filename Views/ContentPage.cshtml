@@ -2,22 +2,22 @@
 @using Umbraco.Cms.Core.Models;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-    Layout = null;
+    Layout = "master.cshtml";
     var featureImage = Model.Value<MediaWithCrops>("featureImage");
 }
 
 <!-- Two -->
-	<section class="spotlight style1 image-position-center content-align-center onscroll-image-fade-in" id="first">
-		<div class="content">
-			<h1>@Model.Name</h1>
-            @Model.Value("mainContent")
-		</div>
+<section class="spotlight style1 image-position-center content-align-center onscroll-image-fade-in" id="first">
+    <div class="content">
+        <h1>@Model.Name</h1>
+        @Model.Value("mainContent")
+    </div>
 
-        @if (featureImage is MediaWithCrops mediaEntry)
-            {
-                <div class="image">
-                    <img src="@mediaEntry.GetCropUrl("minorImage")" alt="Site title image" />
-                </div>
-            }
-		
-	</section>
+    @if (featureImage is MediaWithCrops mediaEntry)
+        {
+            <div class="image">
+                <img src="@mediaEntry.GetCropUrl("minorImage")" alt="Site title image" />
+            </div>
+        }
+    
+</section>
